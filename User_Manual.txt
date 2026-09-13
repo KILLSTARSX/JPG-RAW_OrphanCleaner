@@ -1,6 +1,6 @@
 ══════════════════════════════════════════════════
         JPG-RAW_OrphanCleaner - User Manual
-        (v4.0 · Author: KILL-STAR SX)
+        (v5.0 · Author: KILL-STAR SX)
 ══════════════════════════════════════════════════
 
 【What does this software do?】
@@ -15,13 +15,27 @@ the Recycle Bin, so there is no risk of losing them.
 【Requirements】
   · Windows 10 / 11. The exe runs directly - no installation needed.
   · Source version requires Python 3.10+ with Pillow.
+  · Single-file exe is about 11.6 MB - low resource usage, fast startup.
 
 【Quick start (3 steps)】
   1. Click "Browse..." and pick a photo folder - scanning starts automatically.
-  2. Check the file list and photo preview to confirm what will be deleted.
-  3. Click the Delete button, then "Yes" in the dialog - done.
+  2. Check the orphan list and uncheck any photo you want to keep.
+  3. Click Delete, then the round "Delete" button in the confirm window - done.
 
-【Interface】
+【Interface】(v5.0 modern rounded-card layout with light/dark theme)
+  Top bar: app name on the left; theme, language switch and "About" on the right.
+  · Theme: the button shows the CURRENT theme (Light / Dark); clicking switches
+    to the other one. Default follows the system. All buttons, drop-downs, cards,
+    scrollbars and the slider use rounded / pill shapes.
+  · Drop-downs (camera brand / scan scope / language) are custom-drawn: the
+    selected value appears immediately, with no "blank until you click
+    elsewhere" glitch.
+  · Language: 10 languages (English / 简体中文 / 繁體中文 / 日本語 / 한국어 /
+    Français / Deutsch / Español / Русский / Português). On first launch the
+    system language is detected automatically (Chinese systems use Simplified
+    or Traditional); afterwards your own choice is remembered. The label shows
+    "Language" in Chinese UI and "语言" otherwise, so users of any language can
+    find it. Switching applies instantly - no restart needed.
   ① Target folder: input box + "Browse..." button. Browsing starts scanning
      automatically.
   ② RAW format ("Camera Brand" dropdown):
@@ -35,32 +49,74 @@ the Recycle Bin, so there is no risk of losing them.
   ③ Scan scope: current folder only (default) / 1st-level subfolders /
      2nd-level subfolders / all subfolders.
   ④ Delete mode: orphan JPG only / orphan RAW only / all orphans.
-  ⑤ File list: name, type, size, folder.
+  ⑤ Orphan list: a checkbox column first, then name, type, size, folder.
      - Click a column header to sort; double-click a row to reveal the file in
-       File Explorer; single-click a row to view its EXIF.
-  ⑥ Photo preview: shows the files that will be deleted.
+       File Explorer; single-click a row to view its EXIF;
+     - Clicking a row also scrolls the preview to that thumbnail and
+       highlights it (list <-> preview linked navigation).
+  ⑥ Checkboxes (delete / keep) - new in this version:
+     - All files are CHECKED by default, which means "will be deleted";
+     - Uncheck the photos you want to keep (☑ -> ☐) by clicking:
+       the checkbox in the list, the badge in the top-right of a thumbnail,
+       or by pressing Space with rows selected;
+     - A single "All / None" pill button sits in the "Orphan Files" card header
+       (same row as the list title) and toggles between select-all and
+       select-none automatically;
+     - Unchecked rows look dimmer; the thumbnail badge becomes an empty box.
+     - The badge is intentionally minimal: a rounded box with a check inside
+       (just the empty box when unchecked). Box and check are white with a thin
+       dark outline, so they stay readable on both bright and dark photos and
+       never cover the image.
+     - JPG and RAW thumbnails use the EXACT same badge style, so the check state
+       is obvious at a glance;
+     - The Delete button counts and sizes ONLY the checked files;
+     - The confirm window also reports "Excluded (kept): N file(s)";
+     - Your check state is remembered for the next scan of the same files.
+  ⑦ Photo preview: shows the files that will be deleted.
      - Slider adjusts thumbnail size: Small 120 / Medium 200 / Large 320 px.
      - Single-click a thumbnail to view EXIF; double-click to reveal in File
        Explorer.
      - Brief EXIF (default): one compact line
        Camera | f-stop | Shutter | ISO | Focal length | Resolution
        (e.g. Sony A7M4 | f1.8 | 1/200 | ISO100 | 50mm | 6000x4000).
-     - Detailed EXIF: click "Detailed EXIF" to switch. Fixed 9 fields - Make,
+     - Detailed EXIF: click the "Detailed EXIF" button. Fixed 9 fields - Make,
        Model, Aperture, Shutter, ISO, Focal length, Date taken, Resolution,
-       Lens. Missing fields show "--"; JPG and RAW look identical.
+       Lens. Missing fields show "--"; JPG and RAW look identical. The EXIF text
+       occupies its own full-width row, right-aligned and indented, so it can
+       never be hidden by the button (it used to be squeezed away in narrow
+       windows - fixed).
      - Copy EXIF: double-click the EXIF area, or use the right-click menu.
      - RAW files support EXIF too (embedded TIFF parsing; a few formats such
        as X3F cannot be read).
      - The preview scrolls back to the top when you switch folders.
-  ⑦ Confirm before delete: checked by default - a confirmation dialog appears
+     - Scrollbars and the thumbnail-size slider are custom-drawn: the scrollbar
+       thumb is a ROUNDED RECTANGLE (semicircular ends, not an ellipse) with a
+       very light track; hover to darken, drag it, click the track to page, and
+       the mouse wheel works too.
+     - List (vertical + horizontal), preview and result areas all share exactly
+       the same scrollbar style.
+     - When list content (e.g. a long folder path) is wider than the view, the
+       horizontal scrollbar below the list scrolls properly.
+     - The list and preview areas split the height proportionally and re-adjust
+       on every window resize; the divider can be dragged and its ratio is
+       remembered, so neither area is ever squeezed into a thin strip.
+  ⑧ Confirm before delete: checked by default - a confirmation window appears
      before deleting.
-  ⑧ Delete button: shows the count and total size; becomes "Force Delete"
-     when the RAW format is unmatched (confirmation is then mandatory).
-  ⑨ Result area: log of scans and deletions (success/failure counts and
+  ⑨ Delete button (red): shows the count and total size, e.g.
+     "Delete (7, 24.6 KB)"; becomes "Force Delete" when the RAW format is
+     unmatched (confirmation is then mandatory).
+  ⑩ Result area: log of scans and deletions (success/failure counts and
      failure reasons).
-  ⑩ Language switch: the "Language" dropdown at the top right switches
-     between Chinese and English in real time - no restart needed.
-  ⑪ About: version, author and changelog.
+  ⑪ About: version, author, changelog and the "completely free and open
+     source" statement (follows the UI language).
+
+【Confirmation window (misclick-safe)】
+  · The confirm window has no system title bar, therefore NO "×" close button;
+  · Two round buttons: neutral "✕" (Cancel) on the left, red "✓" (Delete) on
+    the right; pressing one fills it solid for clear feedback;
+  · Esc and Enter both mean CANCEL, and focus starts on Cancel, so pressing
+    Enter never deletes by accident;
+  · Deleting requires an explicit mouse click on the round Delete button.
 
 【Pairing rules】
   · The file name without its extension is the "base name".
@@ -82,18 +138,21 @@ the Recycle Bin, so there is no risk of losing them.
 
 【Settings memory】
 The app remembers: last folder, RAW format, scan scope, confirm checkbox,
-thumbnail size, and window position/size. Restored on next launch.
+thumbnail size, window position/size, the UI LANGUAGE, the LIGHT/DARK THEME
+and your CHECK STATE (files marked as "keep"). Restored on next launch.
 Config file: %APPDATA%\相机照片筛选工具\config.json
 
-【Built-in camera brands】
-  Panasonic       .RW2          OLYMPUS         .ORF
-  Canon           .CR3/.CR2/.CRW Pentax         .PEF
-  Nikon           .NEF/.NRW      Sigma           .X3F
-  Sony            .ARW/.SR2/.SRF Samsung         .SRW
-  Fujifilm        .RAF          Ricoh           .DNG
-  Hasselblad      .3FR          Leica           .DNG
-  Phase One       .IIQ          Mamiya          .MEF
-  Leaf            .MOS
+【Camera brand localization】
+Brand names follow the current UI language while keeping the English name,
+for example:
+  Simplified Chinese: 松下 Panasonic | English: Panasonic
+  Japanese: パナソニック Panasonic | Russian: Никон Nikon
+  (when the local name equals the English name it is shown only once)
+Built-in brands (extensions in brackets):
+  Panasonic (.RW2)  Canon (.CR3/.CR2/.CRW)  Nikon (.NEF/.NRW)
+  Sony (.ARW/.SR2/.SRF)  Fujifilm (.RAF)  Olympus (.ORF)  Pentax (.PEF)
+  Sigma (.X3F)  Samsung (.SRW)  Ricoh (.DNG)  Leica (.DNG)
+  Hasselblad (.3FR)  Phase One (.IIQ)  Mamiya (.MEF)  Leaf (.MOS)
 
 【FAQ】
   1. Some files fail to delete?
@@ -109,15 +168,24 @@ Config file: %APPDATA%\相机照片筛选工具\config.json
      parsed and show "--".
   5. Can I get deleted files back?
      Yes. Everything is moved to the Recycle Bin - restore from there.
+  6. The UI language is not what I want?
+     Pick one in the language dropdown (10 languages, shown natively); the
+     choice is remembered. On first launch it follows the system language.
+  7. I want to keep some photos?
+     Uncheck them (list checkbox / thumbnail badge / Space key); the counts on
+     the Delete button update, and the state is remembered.
+  8. The UI is too bright/dark?
+     Use the "Theme" button in the top bar (default follows the system).
 
-【Changelog】
-  v4.0  Recycle-bin delete (restorable), 9-field EXIF, preview scroll reset,
-        brief compact EXIF, EXIF copy, renamed to JPG-RAW_OrphanCleaner
-  v3.6  Fixed status bar, card scaling, cache on mode switch, lazy + RAW EXIF
-  v3.5  EXIF display, thumbnail cache & parallel decoding, wheel/slider fixes
-  v3.3  Bigger About window, removed manual-select button & lock
-  v3.2  Auto-detect display fix, force delete, slider snap
-  v3.1  Grid preview, three thumbnail levels, auto-detect lock
+【Changelog】(major features only)
+  v5.0  10 languages with system-language auto-detect, localized camera
+        brands, dark/light themes, checkbox selection in list and preview,
+        list-preview linked navigation, custom rounded scrollbars,
+        misclick-safe confirmation
+  v4.1  Modern card UI, lighter build
+  v4.0  Recycle-bin delete (restorable), 9-field EXIF, EXIF copy
+  v3.6  Fixed status bar, proportional cards, lazy + RAW EXIF
+  v3.5  EXIF display, thumbnail cache and parallel decoding
   v3.0  Auto-detect, mismatch protection, settings memory
   v2.0  Multiple RAW formats, recursive scanning
   v1.0  RAW and JPG filtering/deletion
