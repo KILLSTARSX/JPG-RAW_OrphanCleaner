@@ -29,7 +29,7 @@
 
 | 中文 | English |
 | :--- | :--- |
-| 📦 **极致轻量**：11.6 MB —— 比一张 RAW 照片还小，功能却堪比一套完整的照片管理工具 | 📦 **Ultra-Light**：11.6 MB – smaller than a single RAW photo, yet packed with full photo management capabilities |
+| 📦 **极致轻量**：11.6 MB —— 比一张 JPG 照片还小，功能却堪比一套完整的照片管理工具 | 📦 **Ultra-Light**：11.6 MB – smaller than a single JPG photo, yet packed with full photo management capabilities |
 | 🌐 **十种语言**：English / 简体中文 / 繁體中文 / 日本語 / 한국어 / Français / Deutsch / Español / Русский / Português，首次启动自动检测系统语言 | 🌐 **10 Languages**：English / 简体中文 / 繁體中文 / 日本語 / 한국어 / Français / Deutsch / Español / Русский / Português, auto-detects system language on first launch |
 | 🎨 **深浅色主题**：一键切换浅色 / 深色，默认跟随系统，所有控件整体换色无残留 | 🎨 **Dark/Light Theme**：One-click toggle, follows system by default, all controls re-color cleanly |
 | ☑️ **勾选式选择**：列表勾选框 / 缩略图角标 / 空格键三种方式，删除数量只统计勾选文件 | ☑️ **Checkbox Selection**：List checkboxes / thumbnail badges / spacebar – deletion count only includes checked files |
