@@ -1,7 +1,11 @@
 ══════════════════════════════════════════════════
         JPG-RAW_OrphanCleaner - User Manual
-        (v5.0 · Author: KILL-STAR SX)
+        (v5.1 · Author: KILL-STAR SX)
 ══════════════════════════════════════════════════
+
+【Copyright】
+  Copyright (C) 2026 KILL-STAR SX. All rights reserved.
+  Author: KILL-STAR SX
 
 【What does this software do?】
 When your camera shoots "JPG + RAW" dual format, each photo is saved as two
@@ -19,8 +23,48 @@ the Recycle Bin, so there is no risk of losing them.
 
 【Quick start (3 steps)】
   1. Click "Browse..." and pick a photo folder - scanning starts automatically.
-  2. Check the orphan list and uncheck any photo you want to keep.
+  2. Check the orphan list (or the pair-comparison view) and uncheck anything
+     you want to keep.
   3. Click Delete, then the round "Delete" button in the confirm window - done.
+
+【Two interfaces (your choice)】
+  The "View" drop-down in the top bar switches between two layouts; the choice
+  is remembered:
+  · Classic list - shows only the orphan files that would be processed
+    (the v5.0 layout, unchanged).
+  · Pair compare - shows the JPG and its same-named RAW SIDE BY SIDE on one
+    row so the missing side is obvious at a glance:
+      - both present  -> row marked GREEN  (complete, nothing to do; row cannot
+        be checked)
+      - JPG missing   -> row marked YELLOW (RAW only, the RAW is an orphan)
+      - RAW missing   -> row marked RED    (JPG only, the JPG is an orphan)
+    Columns: Delete | JPG file (left) | RAW file (right) | Folder | Status |
+    Action. The missing side is simply left blank (no dash placeholder).
+    The "Action" column states plainly whether the row WILL be deleted, so a
+    fully-listed table is never ambiguous:
+      - Delete                     -> the file is an orphan and checked; it will
+                                      be moved to the Recycle Bin
+      - Keep - unchecked           -> you unchecked it, so it stays
+      - Keep - paired              -> both sides exist, nothing to do
+      - Keep - format not matched  -> the RAW extension is outside the selected
+                                      brand/filter and is protected
+    Example: with 5 candidate photos, switching the brand to "Panasonic" leaves
+    only 2 participating pairs. The classic list shows just those 2, while the
+    pair view still lists everything and marks the rest as
+    "Keep - format not matched".
+    Two switches at the top right:
+      - "Mark by background" (default ON): the whole row background is coloured
+        while the font colour stays the same as the theme; turn it off to colour
+        the TEXT instead and keep the background unchanged.
+      - "Only missing": hide complete pairs and show only problem rows.
+    Click a column header to sort by JPG file / RAW file / Status / Action
+    (click again to reverse). Column widths adapt to the window so all six
+    columns stay visible; each column also has a minimum width equal to its
+    header text, so dragging a column as narrow as possible never covers or
+    cuts off the header text above (true for both the classic and pair views). A legend shows live counts, e.g. "Total 10 pairs: complete 2 ·
+    missing RAW 3 · missing JPG 5".
+    Checkboxes, delete counts, EXIF, preview linkage, reveal-in-Explorer and
+    select-all behave identically in both interfaces.
 
 【Interface】(v5.0 modern rounded-card layout with light/dark theme)
   Top bar: app name on the left; theme, language switch and "About" on the right.
@@ -177,7 +221,36 @@ Built-in brands (extensions in brackets):
   8. The UI is too bright/dark?
      Use the "Theme" button in the top bar (default follows the system).
 
+【Why does Windows protected your PC sometimes appear?】(no certificate needed)
+  That is the normal SmartScreen reputation check for unsigned programs the system
+  has never seen. It appears most often when the file was downloaded from the
+  internet (browsers tag downloads with a Mark of the Web), or when the program is
+  a brand-new build with no reputation yet.
+  Any of these removes the prompt - none requires installing a certificate:
+    1) Run the bundled unblock helper, or right-click the exe -> Properties ->
+       tick Unblock -> OK;
+    2) When sharing, send this single exe; the recipient clicks Run anyway once,
+       or imports the bundled 证书\KILL-STAR SX Root CA.cer to skip the prompt;
+    3) Copy via USB drive / LAN share - such files carry no Mark of the Web;
+    4) On your own PC only: Windows Security -> App and browser control ->
+       Reputation-based protection -> turn Check apps and files off.
+
+【Troubleshooting: the app does not start】
+  · Blue "Windows protected your PC / SmartScreen" prompt: this is the normal
+    warning for unsigned software (this app is free and open source, without a
+    paid code-signing certificate). Click "More info" -> "Run anyway".
+  · "Error: Could not create temporary directory!": the single-file build could
+    not unpack itself (on a few machines %TEMP% is restricted by security
+    software or policy). Fix it in any of these ways:
+      1) Move the single-file exe to a writable folder (Desktop, Documents, USB);
+      2) Delete the leftover _MEI* folders in
+         C:\Users\<you>\AppData\Local\Temp and try again;
+      3) Worst case, rebuild a no-unpack folder build with: build.bat onedir
+  · Rebuilding: run build.bat (single file) or build.bat onedir (folder build).
+
 【Changelog】(major features only)
+  v5.1  Optional pair-comparison view (JPG | RAW side by side, missing side
+        highlighted by row colour), reusable interface switching
   v5.0  10 languages with system-language auto-detect, localized camera
         brands, dark/light themes, checkbox selection in list and preview,
         list-preview linked navigation, custom rounded scrollbars,
