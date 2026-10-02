@@ -15,13 +15,13 @@
 
 ## 📖 目录 / Table of Contents
 
-- [功能亮点](#功能亮点)
-- [快速开始](#快速开始)
-- [支持的相机品牌与 RAW 格式](#支持的相机品牌与-raw-格式)
-- [性能测试数据](#性能测试数据)
-- [安全说明](#安全说明)
-- [更新日志](#更新日志)
-- [作者](#作者)
+- [功能亮点 / Features](#功能亮点)
+- [快速开始 / Quick Start](#快速开始)
+- [支持的相机品牌与 RAW 格式 / Supported Camera Brands & RAW Formats](#支持的相机品牌与-raw-格式)
+- [性能测试数据 / Performance Test Data](#性能测试数据)
+- [安全说明 / Safety Notes](#安全说明)
+- [更新日志 / Changelog](#更新日志)
+- [作者 / Author](#作者)
 
 ---
 
