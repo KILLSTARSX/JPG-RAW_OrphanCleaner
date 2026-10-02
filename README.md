@@ -26,6 +26,8 @@
 ---
 
 <img width="1437" height="1353" alt="image" src="https://github.com/user-attachments/assets/6872ee45-132b-431d-b612-24e041bc0896" />
+<img width="1437" height="1353" alt="image" src="https://github.com/user-attachments/assets/a284dd2a-06b3-433e-aeb8-f7cd4ed9a230" />
+
 
 ## <a id="功能亮点"></a> ✨ 功能亮点 / Features
 
