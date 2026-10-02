@@ -25,11 +25,14 @@
 
 ---
 
+<img width="1437" height="1353" alt="image" src="https://github.com/user-attachments/assets/6872ee45-132b-431d-b612-24e041bc0896" />
+
 ## <a id="功能亮点"></a> ✨ 功能亮点 / Features
 
 | 中文 | English |
 | :--- | :--- |
 | 📦 **极致轻量**：11.6 MB —— 比一张 JPG 照片还小，功能却堪比一套完整的照片管理工具 | 📦 **Ultra-Light**：11.6 MB – smaller than a single JPG photo, yet packed with full photo management capabilities |
+| 🖥️ **两种界面可选**：经典界面（只列出孤立文件）与对比界面（JPG / RAW 左右并排，缺哪边一目了然），选择会被记住 | 🖥️ **Two UI Modes**：Classic (orphans only) and Comparison (JPG/RAW side by side, missing side highlighted); choice is remembered |
 | 🌐 **十种语言**：English / 简体中文 / 繁體中文 / 日本語 / 한국어 / Français / Deutsch / Español / Русский / Português，首次启动自动检测系统语言 | 🌐 **10 Languages**：English / 简体中文 / 繁體中文 / 日本語 / 한국어 / Français / Deutsch / Español / Русский / Português, auto-detects system language on first launch |
 | 🎨 **深浅色主题**：一键切换浅色 / 深色，默认跟随系统，所有控件整体换色无残留 | 🎨 **Dark/Light Theme**：One-click toggle, follows system by default, all controls re-color cleanly |
 | ☑️ **勾选式选择**：列表勾选框 / 缩略图角标 / 空格键三种方式，删除数量只统计勾选文件 | ☑️ **Checkbox Selection**：List checkboxes / thumbnail badges / spacebar – deletion count only includes checked files |
@@ -41,7 +44,7 @@
 | 🗑️ **安全删除**：所有文件移入 Windows 回收站，可恢复 | 🗑️ **Safe Deletion**：All files moved to Windows Recycle Bin, fully recoverable |
 | 🛡️ **防误触确认**：自绘确认窗口，无"×"关闭按钮，默认焦点在"取消"上 | 🛡️ **Mis-touch Protection**：Custom dialog with no "×" button, focus defaults to "Cancel" |
 | ⚡ **多核并行**：扫描与缩略图生成利用多核 CPU，流畅不卡顿 | ⚡ **Multi-core Parallel**：Scanning & thumbnail generation utilize multi-core CPU |
-| ⚙️ **配置记忆**：自动记住文件夹、格式、主题、语言、勾选状态等设置 | ⚙️ **Settings Memory**：Remembers folder, format, theme, language, checkbox states, etc. |
+| ⚙️ **配置记忆**：自动记住文件夹、格式、主题、语言、界面模式、勾选状态等设置 | ⚙️ **Settings Memory**：Remembers folder, format, theme, language, UI mode, checkbox states, etc. |
 
 ---
 
@@ -59,7 +62,7 @@
 | 步骤 | 中文 | English |
 | :--- | :--- | :--- |
 | ① | 点击"浏览…"选择照片文件夹 → 自动开始扫描 | Click "Browse…" to select folder → scanning starts automatically |
-| ② | 在孤立文件列表中检查要删除的文件（不需要删的取消勾选） | Review orphaned files in the list (uncheck any you want to keep) |
+| ② | 在孤立文件列表或对比界面中检查要删除的文件（不需要删的取消勾选） | Review files in the orphan list or comparison view (uncheck any you want to keep) |
 | ③ | 点击"删除"→ 在确认窗口中点圆形"删除"按钮 → 完成 | Click "Delete" → click the round "Delete" button in the dialog → done |
 
 > 📖 详细使用说明请参考压缩包内的 `使用说明书.txt` / For detailed instructions, see `使用说明书.txt` in the package.
@@ -104,6 +107,7 @@ The following data was measured under extreme performance scenarios. **All tests
 | 勾选 / Checkbox selection | ✅ 1000 次勾选 1.3s / 1000 checks in 1.3s |
 | 联动 / List-preview sync | ✅ 66ms |
 | 2000 文件性能 / 2000-file performance | ✅ 扫描 11.7s，1200 缩略图 / Scan 11.7s, 1200 thumbnails |
+| v5.1 对比界面 / v5.1 Comparison UI | ✅ 49 项全部通过 / All 49 tests passed |
 
 <small>此数据基于极限性能场景，具体性能差异因用户电脑配置不同而异。 / This data is based on extreme performance scenarios; actual performance may vary depending on your computer configuration.</small>
 
@@ -123,6 +127,16 @@ The following data was measured under extreme performance scenarios. **All tests
 
 ## <a id="更新日志"></a> 📝 更新日志 / Changelog
 
+**v5.1** — 🖥️ 双界面模式 + 🧩 对比视图
+- **新增**：配对对比界面（JPG | RAW 左右并排，缺失一侧留空，颜色标记：绿=齐全，黄=缺 JPG，红=缺 RAW）
+- **新增**：界面模式可自主切换（应用栏「界面」下拉框），选择会被记住
+- **新增**：对比界面「处理」列，明确显示每行是否会删除（删除 / 不删除·已取消勾选 / 不删除·已配对 / 不删除·格式未匹配）
+- **新增**：对比界面「用背景色标记」开关（默认开）与「只显示缺失」开关
+- **新增**：对比界面顶部图例实时统计（共 N 组：齐全 x · 缺 RAW y · 缺 JPG z）
+- **新增**：对比界面支持按 JPG 文件名 / RAW 文件名 / 状态 / 处理排序
+- **优化**：删除方式（只删 JPG / 只删 RAW / 全部）的圆点改为自绘大圆环，更醒目
+- **优化**：列宽可拖动，最小列宽 = 表头文字宽度，不会遮住表头
+
 **v5.0** — 🌍 全球化 + 🎨 主题系统 + ☑️ 勾选选择
 - **新增**：10 种语言支持（English / 简体中文 / 繁體中文 / 日本語 / 한국어 / Français / Deutsch / Español / Русский / Português）
 - **新增**：首次启动自动检测系统语言（Windows UI 语言 / 环境变量回退）
@@ -138,7 +152,7 @@ The following data was measured under extreme performance scenarios. **All tests
 - **修复**：列表水平滚动（长路径超出宽度时可正常滚动）
 - **优化**：软件体积从 16.2 MB 进一步缩减至 **11.6 MB**
 - **优化**：打包时排除 numpy、PIL 未用插件、unittest 等无用模块
-- **优化**：语言资源外置为 `lang.json`，任何缺失键自动回退英语
+- **优化**：语言资源外置，任何缺失键自动回退英语
 
 **v4.1**
 - **新增**：现代卡片式圆角界面
@@ -202,7 +216,7 @@ The following data was measured under extreme performance scenarios. **All tests
 
 - **KILL-STAR SX**
 - GitHub: [KILLSTARSX](https://github.com/KILLSTARSX)
-- 哔哩哔哩 / Bilibili: [KILL-STAR_SX](https://space.bilibili.com/381623593)
+- 哔哩哔哩 / bilibili: [KILL-STAR_SX](https://space.bilibili.com/381623593)
 
 ---
 
